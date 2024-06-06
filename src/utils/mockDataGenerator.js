@@ -16,10 +16,8 @@ const generateMockData = (numRecords) => {
       id: i,
       intakeDate: intakeDate.toISOString().split('T')[0],
       disposalDate: disposalDate.toISOString().split('T')[0],
-      product: product.productName,
+      product_id: product.id,
       quantity: getRandomInt(1, 10),
-      disposalMethod: product.disposal,
-      disposalLocation: product.disposalLocation
     });
   }
   return mockData;

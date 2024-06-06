@@ -1,4 +1,4 @@
 .DS_Store
 .env
 /data/test.json
-node_modules
+/node_modules

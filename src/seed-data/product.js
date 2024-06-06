@@ -201,7 +201,7 @@ module.exports = [
     id: 19,
     productName: "Coffee Grounds",
     type_id: 5,
-    disposalLocation: "Compost bin or green bin",
+    disposalLocation: "Green bin",
     disposalInstructions:
       "Add coffee grounds to your compost bin or green bin. They are a great source of nitrogen for your compost.",
     unit: "Cup",
@@ -267,7 +267,7 @@ module.exports = [
     id: 25,
     productName: "Plastic Grocery Bags",
     type_id: 1,
-    disposalLocation: "Retailer",
+    disposalLocation: "Blue Bin",
     disposalInstructions:
       "Return plastic bags to participating retailers for recycling. Use reusable shopping bags whenever possible to minimize plastic waste.",
     unit: "Bag",
