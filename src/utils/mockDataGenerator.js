@@ -1,5 +1,5 @@
 const fs = require('fs');
-const products= require("../seed-data/product")
+const products= require("../seed-data/products")
 
 // Step1: Create fucntion to randomly generate mock data
 const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
@@ -17,6 +17,7 @@ const generateMockData = (numRecords) => {
       intakeDate: intakeDate.toISOString().split('T')[0],
       disposalDate: disposalDate.toISOString().split('T')[0],
       product_id: product.id,
+      type_id: product.type_id,
       quantity: getRandomInt(1, 10),
     });
   }
