@@ -1,7 +1,7 @@
 const fs = require('fs');
 const products= require("../seed-data/products")
 
-// Step1: Create fucntion to randomly generate mock data
+//  Create function to randomly generate mock data
 const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
 const generateMockData = (numRecords) => {

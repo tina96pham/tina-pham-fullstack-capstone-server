@@ -12,7 +12,7 @@ module.exports=[
   {
     "id": 2,
     "type": "Paper",
-    "disposal": "Recycling, Composting",
+    "disposal": "Recycling",
     "process": "Paper is sorted, cleaned to remove inks and adhesives, and then pulped. The pulp is dried and pressed to form new paper products.",
     "description": "Recycling one ton of paper saves 17 trees and 7,000 gallons of water.",
     "percentage_landfill": 25,
