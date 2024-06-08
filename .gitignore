@@ -2,3 +2,4 @@
 .env
 /data/test.json
 /node_modules
+/retired

@@ -2,9 +2,9 @@
  * @param { import("knex").Knex } knex
  * @returns { Promise<void> } 
  */
-const data = require("../seed-data/wastelog.js");
+const data = require("../seed-data/goals.js");
 exports.seed = async function (knex) {
 	// Deletes ALL existing entries
-	await knex("wastelog").del();
-	await knex("wastelog").insert(data);
+	await knex("goals").del();
+	await knex("goals").insert(data);
 };
