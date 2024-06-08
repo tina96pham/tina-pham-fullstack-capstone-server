@@ -94,7 +94,21 @@ In the project directory,
     }
 
 - **Goals:**
-  - `GET /api/goals`: Track and monitor waste management goals to drive sustainable waste reduction efforts.
+  - `GET /api/goals`: Retrieve a list of waste management goals to drive sustainable waste reduction efforts within the Refine app.
+  - `GET /api/goals/:id`: Track and monitor waste management goals to drive sustainable waste reduction efforts.
+  
+  ```json
+   {
+        "id": 1,
+        "date": "2022-01-01T05:00:00.000Z",
+        "goal_type": "Weekly",
+        "target_value_kg": "8.50",
+        "isActive": 0,
+        "created_at": "2024-06-08T16:38:07.000Z",
+        "updated_at": "2024-06-08T16:38:07.000Z"
+    },
+   ```
+
   - `POST /api/goals`: Establish new waste management goals to align with organizational objectives.
 - **Records:**
   - `GET /api/records`: Capture, update, and analyze waste management records to monitor progress and identify trends.
@@ -108,6 +122,7 @@ In the project directory,
         "weight": 30,
         "circular_material_index": "0.05"
     }
+   ```
   - `POST /api/records`: Add new waste management records to maintain an accurate representation of waste generation and management efforts.
   - `PUT /api/records`: Update existing waste management records to reflect changes and adjustments accurately.
 

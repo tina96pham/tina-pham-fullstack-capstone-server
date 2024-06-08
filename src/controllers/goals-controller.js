@@ -1,5 +1,7 @@
 const knex = require("knex")(require("../../knexfile.js"));
 const goals = require("../seed-data/goals.js");
+const { v4: uuidv4 } = require("uuid");
+
 
 const getAllGoals= async (req, res) => {
   try {
@@ -25,10 +27,40 @@ const getGoal= async (req, res) => {
   }
 } 
 
+const addGoal= async (req, res) =>{
+  try {
+       await knex("goals")
+       .where("isActive", true) 
+       .update({ isActive: false });
+    const currentDate = new Date();
+    req.body.date = currentDate
+    const result = await knex("goals")
+      .insert(req.body);
+    const newGoalId = result[0];
+    const createdNewGoal = await knex
+      .select (
+        'id',
+        'date',
+        'goal_type',
+        'target_value_kg',
+        'isActive',
+      )
+      .from('goals')
+      .where({ id: newGoalId });
+
+    res.status(201).json(createdNewGoal);
+  } catch (error) {
+    console.log(`Unable to create new goal: ${error}`);
+    res.status(500).json({
+      message: `Unable to create new goal`,
+    });
+  }
+};
+
 
 module.exports = {
     getAllGoals,
     getGoal,
-//     addGoal
+    addGoal
 }
 

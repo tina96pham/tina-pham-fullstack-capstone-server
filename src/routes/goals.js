@@ -3,13 +3,13 @@ const goalsController = require('../controllers/goals-controller');
 
 router
   .route('/')
-  .get(goalsController.getGoal)
-  // .post(goalsController.addGoals)
+  .get(goalsController.getAllGoals)
+  .post(goalsController.addGoal)
 
 router
   .route('/:id')
   .get(goalsController.getGoal)
-//   .put(productsController.editInventory)
-//   .delete(productsController.deleteInventory)
+//   .put(goalsController.editGoal)
+
 
 module.exports = router;
