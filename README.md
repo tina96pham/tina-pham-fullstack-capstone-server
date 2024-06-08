@@ -60,7 +60,19 @@ In the project directory,
 #### API Routes:
 
 - **Types:**
-  - `GET /api/types`: Retrieve a comprehensive list of waste types for accurate categorization.
+  - `GET /api/wastes`: Retrieve an overview of waste types for accurate categorization.
+
+  ```json
+    {
+        "id": 1,
+        "name": "Plastic",
+        "image": "/images/image0.jpg",
+        "description": "Only 9% of all plastic waste ever produced has been recycled. Recycling plastic reduces the need for new plastic production, conserving fossil fuels and reducing greenhouse gas emissions.",
+        "process": "Plastic is sorted by type and color, cleaned, shredded into flakes, melted, and then molded into new products.",
+        "going_to_landfill": 79,
+        "landfill_contribution": "18.50"
+    }
+
   
 - **Products:**
   - `GET /api/products`: Access detailed insights into waste products, including their respective types and associated data.

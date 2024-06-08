@@ -1,9 +1,9 @@
 const router = require('express').Router();
-const infoController = require('../controllers/info-controller');
+const recordsController = require('../controllers/records-controller');
 
 router
   .route('/')
-  .get(infoController.getAllWasteType)
+  .get(recordsController.getAllRecords)
   // .post(inventoryController.addInventory)
 
 // router

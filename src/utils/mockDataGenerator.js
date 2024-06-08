@@ -7,9 +7,9 @@ const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) +
 
 const generateMockData = (numRecords, goals) => {
   const mockData = [];
-  const startDate = new Date(2022, 0, 1); // Start date for goals
-  const endDate = new Date(2024, 5, 30); // End date for goals
-  const numDays = (endDate - startDate) / (1000 * 60 * 60 * 24); // Number of days between start and end date
+  const startDate = new Date(2022, 0, 1); 
+  const endDate = new Date(2024, 5, 30); 
+  const numDays = (endDate - startDate) / (1000 * 60 * 60 * 24); 
 
   for (let i = 1; i <= numRecords; i++) {
     const product = products[getRandomInt(0, products.length - 1)];
@@ -17,13 +17,11 @@ const generateMockData = (numRecords, goals) => {
     // Generate a sequential date within the time frame of the goals
     const date = new Date(startDate.getTime() + (i - 1) * (numDays * 24 * 60 * 60 * 1000 / numRecords));
 
-    // Find a matching goal ID based on the intake date
     const matchingGoal = goals.find(goal => {
       const goalDate = new Date(goal.Date);
       return date >= goalDate && date < new Date(goalDate.getFullYear(), goalDate.getMonth() + 1, goalDate.getDate());
     });
 
-    // Use the found goal ID or default to 1 if no matching goal is found
     const goalId = matchingGoal ? matchingGoal.ID : 1;
 
     mockData.push({
@@ -43,8 +41,8 @@ const generateMockData = (numRecords, goals) => {
 };
 
 // Generate mock data
-const mockData = generateMockData(100, goals); // Adjust the number of records as needed
-
+const mockData = generateMockData(100, goals); 
+// Save mock data
 fs.writeFileSync('../seed-data/records.js', JSON.stringify(mockData));
 console.log('Mock waste tracker data generated successfully!');
 

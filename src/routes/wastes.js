@@ -1,9 +1,9 @@
 const router = require('express').Router();
-const wastelogController = require('../controllers/wastelog-controller');
+const wastesController = require('../controllers/wastes-controller');
 
 router
   .route('/')
-  .get(wastelogController.getWasteRecord)
+  .get(wastesController.getAllWastes)
   // .post(inventoryController.addInventory)
 
 // router

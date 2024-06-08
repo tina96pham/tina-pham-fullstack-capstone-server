@@ -8,6 +8,7 @@ exports.up = function (knex) {
       table.date("date").notNullable();
       table.string("goal_type").notNullable();
       table.integer("target_value_kg").notNullable();
+      table.boolean("isActive").notNullable();
       table.timestamp("created_at").defaultTo(knex.fn.now());
       table
         .timestamp("updated_at")

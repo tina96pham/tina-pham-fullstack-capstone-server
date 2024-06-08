@@ -10,7 +10,7 @@ exports.up = function (knex) {
     table.string('description').notNullable();
     table.string('process').notNullable();
     table.integer('going_to_landfill').notNullable();
-    table.decimal('landfill_contribution').notNullable();
+    table.float('landfill_contribution').notNullable();
     table.timestamp("created_at").defaultTo(knex.fn.now());
 		table
 			.timestamp("updated_at")
