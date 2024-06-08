@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(cors());
 app.use(express.static('public'));
 app.use('/api/wastes', wastes);
-// app.use('/api/products', products);
+app.use('/api/products', products);
 // app.use('/api/goals', goals);
 app.use('/api/records', records);
 

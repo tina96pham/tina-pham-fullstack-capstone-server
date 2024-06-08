@@ -1,9 +1,9 @@
 const router = require('express').Router();
 const productsController = require('../controllers/products-controller');
 
-// router
-//   .route('/')
-//   .get(productsController.getAllProducts)
+router
+  .route('/')
+  .get(productsController.getAllProducts)
   // .post(productsController.addInventory)
 
 // router
@@ -12,4 +12,4 @@ const productsController = require('../controllers/products-controller');
 //   .put(productsController.editInventory)
 //   .delete(productsController.deleteInventory)
 
-// module.exports = router;
+module.exports = router;

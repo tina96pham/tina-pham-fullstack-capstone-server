@@ -2,31 +2,33 @@ const knex = require("knex")(require("../../knexfile.js"));
 const products = require("../seed-data/products.js");
 const types = require("../seed-data/types.js");
 
-const getAllWastes= async (req, res) => {
+const getAllProducts= async (req, res) => {
     try {
-      const wasteType= await knex
+      const products= await knex
       .select (
         'products.id as productId',
         'products.name as productName',
         'types.name as type',
-        'description',
-        'process',
-        'going_to_landfill',
+        'products.designation',
+        'products.instruction',
+        'products.recyclable',
+        'products.reusable',
+        'products.weight_g as contribution',
         'landfill_contribution'
       )
       .from('products')
       .join("types", "products.type_id", "types.id")
 
       
-      res.status(200).json(wasteType);
+      res.status(200).json(products);
     } catch(error) {
-      console.log(`Error retrieving waste type: ${error}`)
-      res.status(500).json(`Unable to retrieve all wastes information`);
+      console.log(`Error retrieving products: ${error}`)
+      res.status(500).json(`Unable to retrieve all products information`);
     }
   } 
   
   module.exports = {
-    getAllWastes
+    getAllProducts
   }
 
 
