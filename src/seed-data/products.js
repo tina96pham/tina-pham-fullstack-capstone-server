@@ -55,7 +55,7 @@ module.exports = [
     id: 5,
     type_id: 1,
     name: "Plastic Bags",
-    designation: "Retailer",
+    designation: "Landfill",
     instruction:
       "Return plastic bags to participating retailers for recycling. Use reusable shopping bags whenever possible to minimize plastic waste.",
     reusable: "low",

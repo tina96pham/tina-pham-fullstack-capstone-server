@@ -79,11 +79,35 @@ In the project directory,
 
 - **Products:**
   - `GET /api/products`: Access detailed insights into waste products, including their respective types and associated data.
+
+  ```json
+   {
+        "productId": 4,
+        "productName": "Plastic Bottles",
+        "type": "Plastic",
+        "designation": "Blue bin",
+        "instruction": "Rinse and flatten plastic bottles, remove caps, and place them in the blue bin. Choose reusable water bottles to reduce waste.",
+        "recyclable": "high",
+        "reusable": "low",
+        "contribution": 200,
+        "cmi": "0.50"
+    }
+
 - **Goals:**
   - `GET /api/goals`: Track and monitor waste management goals to drive sustainable waste reduction efforts.
   - `POST /api/goals`: Establish new waste management goals to align with organizational objectives.
 - **Records:**
   - `GET /api/records`: Capture, update, and analyze waste management records to monitor progress and identify trends.
+  ```json
+  {
+        "id": 1,
+        "date": "2022-01-01T05:00:00.000Z",
+        "productName": "Plastic Beverage Rings",
+        "type": "Plastic",
+        "quantity": 2,
+        "weight": 30,
+        "circular_material_index": "0.05"
+    }
   - `POST /api/records`: Add new waste management records to maintain an accurate representation of waste generation and management efforts.
   - `PUT /api/records`: Update existing waste management records to reflect changes and adjustments accurately.
 

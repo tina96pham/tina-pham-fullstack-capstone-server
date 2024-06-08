@@ -6,8 +6,8 @@ router
   .get(recordsController.getAllRecords)
   // .post(inventoryController.addInventory)
 
-// router
-//   .route('/:id')
+router
+  .route('/:id')
 //   .get(inventoryController.getOneInventory)
 //   .put(inventoryController.editInventory)
 //   .delete(inventoryController.deleteInventory)

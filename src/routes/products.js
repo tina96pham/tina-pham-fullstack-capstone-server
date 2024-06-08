@@ -4,12 +4,10 @@ const productsController = require('../controllers/products-controller');
 router
   .route('/')
   .get(productsController.getAllProducts)
-  // .post(productsController.addInventory)
 
-// router
-//   .route('/:id')
-//   .get(productsController.getOneInventory)
-//   .put(productsController.editInventory)
-//   .delete(productsController.deleteInventory)
+router
+  .route('/:id')
+  .get(productsController.getOneProduct)
+
 
 module.exports = router;
