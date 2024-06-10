@@ -32,7 +32,7 @@ const getAllRecords = async (_req, res) => {
   }
 };
 
-// Get ALL records info
+// Post a record
 const addRecord = async (req, res) => {
   missingFieldsValidator(req,res)
   try {
@@ -44,14 +44,13 @@ const addRecord = async (req, res) => {
     if (!product || !type) {
       return res.status(404).json({ error: "Product or type not found" });
     }
+    if (!req.body.quantity || isNaN(req.body.quantity) || req.body.quantity <= 0) {
+      return res.status(400).json({ error: "Quantity must be a number" });
+    }
 
-    // Fetch the active goal
     const activeGoal = await knex("goals").where({ isActive: true }).first();
 
-    // Check if active goal exists
-    if (!activeGoal) {
-      return res.status(404).json({ error: "Active goal not found" });
-    }
+  
     const newRecord = {
       date: req.body.date,
       product_id: product.id,

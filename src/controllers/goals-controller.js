@@ -32,6 +32,9 @@ const getGoal= async (req, res) => {
 
 const addGoal= async (req, res) =>{
   missingFieldsValidator(req, res);
+  if (!req.body.target_value_kg || isNaN(req.body.target_value_kg) || req.body.target_value_kg <= 0) {
+    return res.status(400).json({ error: "Value must be a number" });
+  }
 
   try {
        await knex("goals")
@@ -40,12 +43,7 @@ const addGoal= async (req, res) =>{
 
     const currentDate = new Date().toISOString().split('T')[0];
     req.body.date=currentDate;
-    const newGoalData = { 
-      ...req.body,
-        isActive: true,
-        goal_type: 'weekly',
-    };
-    // const result = await knex("goals").insert(newGoalData);
+   
     const result = await knex("goals").insert({
       target_value_kg: req.body.target_value_kg,
       date: currentDate,
