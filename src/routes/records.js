@@ -4,12 +4,10 @@ const recordsController = require('../controllers/records-controller');
 router
   .route('/')
   .get(recordsController.getAllRecords)
-  // .post(inventoryController.addInventory)
+  .post(recordsController.addRecord)
 
 router
   .route('/:id')
-//   .get(inventoryController.getOneInventory)
-//   .put(inventoryController.editInventory)
-//   .delete(inventoryController.deleteInventory)
+
 
 module.exports = router;

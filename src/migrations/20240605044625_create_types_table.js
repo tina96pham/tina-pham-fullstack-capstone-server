@@ -8,6 +8,7 @@ exports.up = function (knex) {
     table.string('name').notNullable();
     table.string('image').notNullable();
     table.string('description').notNullable();
+    table.string('impact').notNullable();
     table.string('process').notNullable();
     table.integer('going_to_landfill').notNullable();
     table.float('landfill_contribution').notNullable();

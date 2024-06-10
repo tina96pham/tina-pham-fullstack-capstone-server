@@ -1,7 +1,10 @@
 const knex = require("knex")(require("../../knexfile.js"));
 const goals = require("../seed-data/goals.js");
 const { v4: uuidv4 } = require("uuid");
-
+const {  
+  missingFieldsValidator
+} 
+= require('../utils/validators.js');
 
 const getAllGoals= async (req, res) => {
   try {
@@ -28,14 +31,26 @@ const getGoal= async (req, res) => {
 } 
 
 const addGoal= async (req, res) =>{
+  missingFieldsValidator(req, res);
+
   try {
        await knex("goals")
        .where("isActive", true) 
        .update({ isActive: false });
-    const currentDate = new Date();
-    req.body.date = currentDate
-    const result = await knex("goals")
-      .insert(req.body);
+
+    const currentDate = new Date().toISOString().split('T')[0];
+    req.body.date=currentDate;
+    const newGoalData = { 
+      ...req.body,
+        isActive: true,
+        goal_type: 'weekly',
+    };
+    // const result = await knex("goals").insert(newGoalData);
+    const result = await knex("goals").insert({
+      target_value_kg: req.body.target_value_kg,
+      date: currentDate,
+      isActive: true
+    });
     const newGoalId = result[0];
     const createdNewGoal = await knex
       .select (
